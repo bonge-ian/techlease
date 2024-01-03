@@ -1,0 +1,23 @@
+// navbar
+@mixin hook-navbar-nav-item() {
+
+	$navbar-item-padding-block-start-end: 0.1rem; /* the thickness of the line */
+	//$navbar-item-hover-percentage: 100%;
+	//$navbar-item-hover-duration: 3s;
+	padding-block: $navbar-item-padding-block-start-end;
+	background: linear-gradient($navbar-nav-item-hover-color 50%, $global-emphasis-color 0) 0 calc(100% - var(--_p,0%))/100% 200%, linear-gradient($navbar-nav-item-hover-color 0 0) 0% var(--_p,0%)/var(--_p,0%) $navbar-item-padding-block-start-end no-repeat;
+	-webkit-background-clip: text, padding-box;
+	background-clip: text, padding-box;
+	transition: .3s var(--_s, 0s) linear, background-size .3s calc(.3s - var(--_s, 0s));
+}
+
+@mixin hook-navbar-nav-item-hover() {
+	--_p: 100%;
+	--_s: .3s;
+}
+
+// when the navbar is sticky
+@mixin hook-navbar-sticky() {
+	@extend .uk-box-shadow-small;
+	//box-shadow: 2px 4px 16px rgba(0, 0, 0, .06);
+}
