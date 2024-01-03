@@ -8,14 +8,14 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('{{ table }}', function (Blueprint $table) {
+        Schema::table(table: '{{ table }}', callback: function (Blueprint $table) {
             //
         });
     }
 
     public function down(): void
     {
-        Schema::table('{{ table }}', function (Blueprint $table) {
+        Schema::table(table: '{{ table }}', callback: function (Blueprint $table) {
             //
         });
     }
