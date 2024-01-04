@@ -7,16 +7,18 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
-    {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-    }
+	public function run(): void
+	{
+		// should follow this order.
+		$this->call(class: [
+			UserSeeder::class,
+			CategorySeeder::class,
+			BrandSeeder::class,
+			ProductSeeder::class,
+			CategoryProductSeeder::class,
+			ProductVariationSeeder::class,
+			ProductVariationRentalPeriodSeeder::class,
+			StockSeeder::class,
+		]);
+	}
 }

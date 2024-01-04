@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Product;
+use App\Models\Category;
+
 return [
 
     /*
@@ -136,6 +139,14 @@ return [
             // 'users' => [
             //     'filterableAttributes'=> ['id', 'name', 'email'],
             // ],
+            Category::class => [
+                'filterableAttributes' => ['name', 'slug'],
+            ],
+            Product::class => [
+                'filterableAttributes' => ['price', 'brand', 'category_ids', 'size', 'color'],
+                'sortableAttributes' => ['price'],
+                'facetDistribution' => ['brand', 'category_ids',],
+            ],
         ],
     ],
 
