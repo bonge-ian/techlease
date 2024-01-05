@@ -1,18 +1,17 @@
 <?php
 
 use App\Models\ProductVariation;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-return new class() extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create(table: 'stocks', callback: function (Blueprint $table) {
+        Schema::create(table: 'stocks', callback: static function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(model: ProductVariation::class, column: 'product_variation_id')
                 ->constrained()

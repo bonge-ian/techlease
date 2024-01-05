@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Casts\AsBrickMoney;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Concerns\HasThumb100X100;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -15,23 +14,20 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 class ProductVariation extends Model
 {
     use HasFactory;
+    use HasRecursiveRelationships;
     use HasThumb100X100;
     use InteractsWithMedia;
-    use HasRecursiveRelationships;
 
     protected $fillable = [
         'sku',
         'type',
         'title',
-        'price',
         'order',
-        'currency',
         'parent_id',
     ];
 
     protected $casts = [
         'order' => 'integer',
-        'price' => AsBrickMoney::class,
     ];
 
     protected static function booted(): void

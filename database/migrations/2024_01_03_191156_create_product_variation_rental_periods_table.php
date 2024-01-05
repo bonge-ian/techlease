@@ -12,13 +12,13 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::create(table: 'product_variation_rental_periods', callback: function (Blueprint $table) {
+        Schema::create(table: 'product_variation_rental_periods', callback: static function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(model: ProductVariation::class)->constrained()->cascadeOnDelete();
             $table->string(column: 'duration');
             $table->string(column: 'period')->default(value: RentalPeriodType::MONTH->value);
             $table->string(column: 'price')->nullable();
-            $table->string(column: 'currency')->default(value: "KES");
+            $table->string(column: 'currency')->default(value: 'KES');
             $table->timestamps();
         });
     }

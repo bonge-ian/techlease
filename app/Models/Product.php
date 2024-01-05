@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Casts\AsBrickMoney;
 use Laravel\Scout\Searchable;
 use App\Models\Concerns\HasSlug;
 use Illuminate\Database\Eloquent\Model;
@@ -19,24 +18,21 @@ class Product extends Model
 {
     use HasFactory;
     use HasSlug;
-    use Searchable;
     use HasThumb100X100;
     use InteractsWithMedia;
+    use Searchable;
 
     protected $fillable = [
         'slug',
         'title',
-        'price',
         'specs',
         'live_at',
-        'currency',
         'description',
         'box_contents',
     ];
 
     protected $casts = [
         'live_at' => 'datetime',
-        'price' => AsBrickMoney::class,
     ];
 
     public function brand(): BelongsTo
@@ -75,7 +71,6 @@ class Product extends Model
             'id' => (int) $this->id,
             'slug' => $this->slug,
             'title' => $this->title,
-            'price' => (int) $this->price->getMinorAmount()->toInt(),
             'brand' => (array) $this->brand->only(['name', 'slug']),
             'category_ids' => $this->categories->pluck('id')->toArray(),
             ...$this->variations->groupBy('type')

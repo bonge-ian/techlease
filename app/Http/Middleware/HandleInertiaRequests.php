@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Inertia\Middleware;
+use Illuminate\Http\Request;
 use Laravel\Fortify\Features;
+use Illuminate\Support\Facades\Route;
 
 class HandleInertiaRequests extends Middleware
 {

@@ -14,7 +14,7 @@ class ProductVariationRentalPeriodSeeder extends Seeder
             return;
         }
 
-        $query->eachById(callback: function (ProductVariation $variation): void {
+        $query->eachById(callback: static function (ProductVariation $variation): void {
             $variation->rentalPeriods()->saveMany(
                 models: ProductVariationRentalPeriod::factory()->count(count: random_int(1, 4))->make()
             );

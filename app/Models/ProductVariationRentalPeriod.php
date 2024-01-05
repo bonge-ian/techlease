@@ -37,6 +37,6 @@ class ProductVariationRentalPeriod extends Model
 
     protected function rentalPeriod(): Attribute
     {
-        return Attribute::get(fn (mixed $value, array $attributes): mixed => str(string: $attributes['period'])->plural(count: $attributes['duration']));
+        return Attribute::get(static fn (mixed $value, array $attributes): mixed => str(string: $attributes['period'])->plural(count: $attributes['duration']));
     }
 }

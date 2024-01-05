@@ -15,13 +15,13 @@ class StockSeeder extends Seeder
         }
 
         $query->eachById(
-            callback: function (ProductVariation $variation): void {
+            callback: static function (ProductVariation $variation): void {
                 $variation->stocks()->saveMany(
                     models: ($initial_stocks = Stock::factory()->count(count: random_int(1, 3))->make())
                 );
 
                 $initial_stocks->each(
-                    callback: function (Stock $stock) use ($variation): void {
+                    callback: static function (Stock $stock) use ($variation): void {
                         $variation->stocks()->saveMany(
                             models: Stock::factory()->count(count: random_int(1, 3))->make(attributes: [
                                 'amount' => random_int(min(-$stock->amount, -$variation->stockCount()), $stock->amount),

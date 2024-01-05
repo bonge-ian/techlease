@@ -2,13 +2,13 @@
 
 namespace App\Casts;
 
-use Brick\Math\Exception\MathException;
-use Brick\Math\Exception\NumberFormatException;
-use Brick\Math\Exception\RoundingNecessaryException;
-use Brick\Money\Exception\UnknownCurrencyException;
 use Brick\Money\Money;
-use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Brick\Math\Exception\MathException;
 use Illuminate\Database\Eloquent\Model;
+use Brick\Math\Exception\NumberFormatException;
+use Brick\Money\Exception\UnknownCurrencyException;
+use Brick\Math\Exception\RoundingNecessaryException;
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
 class AsBrickMoney implements CastsAttributes
 {
@@ -36,7 +36,7 @@ class AsBrickMoney implements CastsAttributes
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        if (! $value instanceof Money) {
+        if (!$value instanceof Money) {
             return $value;
         }
 

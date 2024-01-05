@@ -1,0 +1,23 @@
+{
+	"preset": "psr12",
+	"rules": {
+		"array_syntax": true,
+		"single_line_empty_body": true,
+		"constant_case": {
+			"case": "lower"
+		},
+		"ordered_interfaces": {
+			"order": "length"
+		},
+		"static_lambda": true,
+		"ordered_imports": {
+			"sort_algorithm": "length"
+		},
+		"concat_space": {
+			"spacing": "one"
+		},
+		"no_unused_imports": true,
+		"no_useless_nullsafe_operator": true,
+		"method_chaining_indentation": true
+	}
+}

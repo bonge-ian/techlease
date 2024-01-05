@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class CategoryProductSeeder extends Seeder
@@ -16,7 +16,7 @@ class CategoryProductSeeder extends Seeder
 
         $categories = Category::query()->get(columns: 'id');
 
-        Product::query()->eachById(callback: function (Product $product) use ($categories) {
+        Product::query()->eachById(callback: static function (Product $product) use ($categories) {
             $product->categories()->saveMany(
                 models: $categories->random(number: random_int(1, $categories->count()))
             );

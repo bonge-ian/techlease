@@ -15,12 +15,12 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 class Category extends Model
 {
-    use HasSlug;
     use HasFactory;
-    use Searchable;
+    use HasRecursiveRelationships;
+    use HasSlug;
     use HasThumb100X100;
     use InteractsWithMedia;
-    use HasRecursiveRelationships;
+    use Searchable;
 
     protected $fillable = [
         'name',
@@ -64,7 +64,7 @@ class Category extends Model
             'order' => (int) $this->order,
             'parent' => $this->parent?->only(['name', 'slug']),
             'children' => (array) $this->children->sortByDesc('order')
-                ->transform(fn ($child) => $child->only(['name', 'slug']))
+                ->transform(static fn ($child) => $child->only(['name', 'slug']))
                 ->all(),
         ];
     }

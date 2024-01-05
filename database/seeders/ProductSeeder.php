@@ -12,7 +12,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         Product::factory()->count(count: 100)
-            ->sequence(fn (Sequence $sequence) => [
+            ->sequence(static fn (Sequence $sequence) => [
                 'brand_id' => Brand::query()->pluck(column: 'id')->random(),
             ])
             ->create();

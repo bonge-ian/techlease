@@ -15,9 +15,9 @@ class Brand extends Model
 {
     use HasFactory;
     use HasSlug;
-    use Searchable;
     use HasThumb100X100;
     use InteractsWithMedia;
+    use Searchable;
 
     protected $fillable = [
         'name',

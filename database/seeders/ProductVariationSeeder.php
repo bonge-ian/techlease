@@ -14,12 +14,12 @@ class ProductVariationSeeder extends Seeder
             return;
         }
 
-        $query->eachById(callback: function (Product $product): void {
+        $query->eachById(callback: static function (Product $product): void {
             $product->variations()->saveMany(
                 models: ($parents = ProductVariation::factory()->count(count: random_int(1, 4))->make())
             );
 
-            $parents->each(callback: function (ProductVariation $variation) use ($product): void {
+            $parents->each(callback: static function (ProductVariation $variation) use ($product): void {
                 $variation->children()->saveMany(
                     models: ProductVariation::factory()
                         ->count(count: random_int(1, 6))
