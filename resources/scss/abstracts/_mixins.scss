@@ -21,3 +21,315 @@
 	@extend .uk-box-shadow-small;
 	//box-shadow: 2px 4px 16px rgba(0, 0, 0, .06);
 }
+
+// margin
+@mixin hook-margin-misc() {
+	.uk-margin-vertical {
+		margin-top: $global-margin;
+		margin-bottom: $global-margin;
+	}
+
+	.uk-margin-horizontal {
+		margin-left: $global-margin;
+		margin-right: $global-margin;
+	}
+
+	.uk-margin-xsmall {
+		margin-bottom: $global-xsmall-margin;
+	}
+
+	* + .uk-margin-xsmall {
+		margin-top: $global-xsmall-margin !important;
+	}
+
+	.uk-margin-xsmall-top {
+		margin-top: $global-xsmall-margin !important;
+	}
+	.uk-margin-xsmall-bottom {
+		margin-bottom: $global-xsmall-margin !important;
+	}
+	.uk-margin-xsmall-left {
+		margin-left: $global-xsmall-margin !important;
+	}
+	.uk-margin-xsmall-right {
+		margin-right: $global-xsmall-margin !important;
+	}
+	.uk-margin-xsmall {
+		margin: $global-xsmall-margin;
+	}
+}
+
+// padding
+@mixin hook-padding-misc() {
+	.uk-padding-xsmall {
+		padding: $global-xsmall-gutter;
+	}
+	.uk-padding-xsmall-vertical {
+		padding-top: $global-xsmall-gutter;
+		padding-bottom: $global-xsmall-gutter;
+	}
+	.uk-padding-xsmall-horizontal {
+		padding-left: $global-xsmall-gutter;
+		padding-right: $global-xsmall-gutter;
+	}
+	.uk-padding-xsmall-top {
+		padding-top: $global-xsmall-gutter;
+	}
+	.uk-padding-xsmall-bottom {
+		padding-bottom: $global-xsmall-gutter;
+	}
+	.uk-padding-xsmall-left {
+		padding-left: $global-xsmall-gutter;
+	}
+	.uk-padding-xsmall-right {
+		padding-right: $global-xsmall-gutter;
+	}
+
+	.uk-padding-small-vertical {
+		padding-top: $global-small-gutter;
+		padding-bottom: $global-small-gutter;
+	}
+	.uk-padding-horizontal-small {
+		padding-left: $global-small-gutter;
+		padding-right: $global-small-gutter;
+	}
+	.uk-padding-small-top {
+		padding-top: $global-small-gutter;
+	}
+	.uk-padding-small-bottom {
+		padding-bottom: $global-small-gutter;
+	}
+	.uk-padding-small-left {
+		padding-left: $global-small-gutter;
+	}
+	.uk-padding-small-right {
+		padding-right: $global-small-gutter;
+	}
+
+	.uk-padding-medium-vertical {
+		padding: $global-medium-gutter 0;
+	}
+	.uk-padding-medium-horizontal {
+		padding-left: $global-medium-gutter;
+		padding-right: $global-medium-gutter;
+	}
+	.uk-padding-medium-top {
+		padding-top: $global-medium-gutter;
+	}
+	.uk-padding-medium-bottom {
+		padding-bottom: $global-medium-gutter;
+	}
+	.uk-padding-medium-left {
+		padding-left: $global-medium-gutter;
+	}
+	.uk-padding-medium-right {
+		padding-right: $global-medium-gutter;
+	}
+
+	.uk-padding-large-vertical {
+		padding-top: $global-large-gutter;
+		padding-bottom: $global-large-gutter;
+	}
+	.uk-padding-large-horizontal {
+		padding-left: $global-large-gutter;
+		padding-right: $global-large-gutter;
+	}
+	.uk-padding-large-top {
+		padding-top: $global-large-gutter;
+	}
+	.uk-padding-large-bottom {
+		padding-bottom: $global-large-gutter;
+	}
+	.uk-padding-large-left {
+		padding-left: $global-large-gutter;
+	}
+	.uk-padding-large-right {
+		padding-right: $global-large-gutter;
+	}
+
+	.uk-padding-xlarge {
+		padding: $global-xlarge-gutter;
+	}
+
+	.uk-padding-xlarge {
+		padding: $global-xlarge-gutter;
+	}
+
+	/* Desktop and bigger */
+	@media (min-width: $breakpoint-large) {
+
+		.uk-padding-xlarge {
+			padding: $global-xlarge-gutter;
+		}
+
+	}
+}
+
+@mixin hook-utility-misc() {
+	.uk-overflow-y-auto {
+		overflow-y: auto;
+	}
+}
+
+@mixin hook-table-misc() {
+	.uk-table-link > a.uk-link-reset {
+		&:hover {
+			color: $global-link-hover-color !important;
+		}
+
+		&:active {
+			color: $global-link-hover-color !important;
+		}
+	}
+}
+
+// pagination.
+@mixin hook-pagination-item() {
+	transition: .1s ease-in-out;
+	transition-property: color, background-color, border-color, box-shadow;
+	box-sizing: border-box;
+	min-width: 2.5rem;
+	justify-content: center;
+	height: 2.5rem;
+	background-color: $global-muted-background;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+@mixin hook-pagination-item-hover() {
+	background-color: $global-primary-background;
+}
+
+@mixin hook-pagination-item-active() {
+	@include hook-pagination-item-hover();
+}
+
+@mixin hook-pagination-item-disabled() {
+	background: transparent;
+}
+
+// buttons
+@mixin hook-button() {
+	transition: .1s ease-in-out;
+	transition-property: color, background-color, background-position, background-size, border-color, box-shadow;
+	background-origin: border-box
+}
+
+@mixin hook-button-default-hover() {
+	box-shadow: 0 0 0 3px rgba($button-default-hover-color, .95)
+}
+
+@mixin hook-button-default-active() {
+	box-shadow: 0 0 0 1.5px rgba($button-default-active-border, .95)
+}
+
+@mixin hook-button-text() {
+	position: relative;
+	background-image: linear-gradient(
+			to right,
+			$global-primary-background,
+			$global-primary-background 50%,
+			$global-secondary-background 50%
+	);
+	background-size: 200% 100%;
+	background-position: -100%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	transition: all 0.3s ease-in-out;
+
+	&::before {
+		content: "";
+		background: $global-primary-background;
+		display: block;
+		position: absolute;
+		bottom: -0.1875rem;
+		left: 0;
+		width: 0;
+		height: 0.1875rem;
+		transition: all 0.3s ease-in-out;
+
+	}
+}
+
+@mixin hook-button-link() {
+	padding: 0.5rem;
+	background: linear-gradient(currentColor 0 0) 100% 0,
+	linear-gradient(currentColor 0 0) 0 0,
+	linear-gradient(currentColor 0 0) 0 100%,
+	linear-gradient(currentColor 0 0) 100% 100%;
+	background-size: var(--d, 0) 3px, 3px var(--d, 0);
+	background-repeat: no-repeat;
+	transition: 0.5s;
+
+	&:hover {
+		--d: 100%;
+	}
+}
+
+@mixin hover-box-shadow($color) {
+	box-shadow: 0 0 0 0.3125rem rgba($color, .3)
+}
+
+@mixin active-box-shadow($color) {
+	box-shadow: 0 0 0 0.1875rem rgba($color, .3)
+}
+
+@mixin hook-button-text-hover() {
+	background-position: 0;
+	&::before {
+		width: 100%;
+	}
+}
+
+@mixin hook-button-primary-hover() {
+	@include hover-box-shadow($global-primary-background);
+}
+
+@mixin hook-button-primary-active() {
+	@include active-box-shadow($global-primary-background);
+}
+
+
+@mixin hook-button-secondary-hover() {
+	@include hover-box-shadow($global-secondary-background);
+}
+
+@mixin hook-button-danger-active() {
+	@include active-box-shadow($global-danger-background);
+}
+
+@mixin hook-button-danger-hover() {
+	@include hover-box-shadow($global-danger-background);
+}
+
+@mixin hook-button-danger-active() {
+	@include active-box-shadow($global-danger-background);
+}
+
+@mixin hook-button-misc() {
+	.uk-button-success {
+		background-color: darken($global-success-background, 10%);
+		color: $global-secondary-background;
+
+		&:hover {
+			@include hover-box-shadow($global-success-background);
+		}
+
+		&:active {
+			@include active-box-shadow($global-success-background);
+		}
+	}
+
+	.uk-button-warning {
+		background-color: $global-warning-background;
+		color: $global-secondary-background;
+
+		&:hover {
+			@include hover-box-shadow($global-warning-background);
+		}
+
+		&:active {
+			@include active-box-shadow($global-warning-background);
+		}
+	}
+}
