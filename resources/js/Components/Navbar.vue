@@ -16,7 +16,10 @@ import { Link } from "@inertiajs/vue3";
 					<div class="uk-navbar-left">
 						<a :href="route('home')" class="uk-inline">
 							<img
-								alt="Tech Lease"
+								:alt="
+									$page.props.config['app.name'] ??
+									'Tech Lease'
+								"
 								height="320"
 								loading="eager"
 								src="../../images/logos/tech-lease-320.webp"
